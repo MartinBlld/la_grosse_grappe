@@ -1,6 +1,6 @@
-class CreateGravepines < ActiveRecord::Migration[7.0]
+class CreateGrapevines < ActiveRecord::Migration[7.0]
   def change
-    create_table :gravepines do |t|
+    create_table :grapevines do |t|
       t.string :grape_variety
       t.boolean :organic
       t.string :color
