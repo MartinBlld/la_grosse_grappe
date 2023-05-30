@@ -35,11 +35,8 @@
 
 <ul>
   <% @grapevines.each do |grapevine| %>
-    <li><%= grapevine.grape_variety %></li>
-    <li><%= grapevine.organic %></li>
-    <li><%= grapevine.color %></li>
-    <li><%= grapevine.area %></li>
+    <li><%= link_to grapevine.name, grapevine_path%>, <%= grapevine.grape_variety %><%= ", organic" if grapevine.organic == true %>, <%= grapevine.color %>, <%= grapevine.area %></li>
   <% end %>
 </ul>
 
-<%= link_to "Créer une nouvelle vigne", new_grapevine_path%>
+<%= link_to "Créer une nouvelle vigne", new_grapevine_path %>
