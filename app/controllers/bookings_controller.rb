@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: :destroy
-  before_action :set_list, only: [:new, :create]
+   before_action :grapevine, only: [ :new, :create]
 
   def new
+    # @grapevine = Grapevine.find(params[:grapevine_id])
     @booking = Booking.new
   end
 
@@ -10,11 +11,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.grapevine = @grapevine
-    @booking.status = "Merci pour votre geste ! "
-    if @booking.save
+    @booking.status = "Merci pour votre geste !"
+    @booking.save
+    if @booking.save!
       @grapevine.parcel_stock = @grapevine.parcel_stock - @booking.parcel_quantity
       @grapevine.save
-      redirect_to booking_path(@user)
+      redirect_to user_session_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,10 +25,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:parcel_quantity, :starting_year, :ending_year, :status)
+    params.require(:booking).permit(:parcel_quantity, :starting_year, :ending_year)
   end
 
-  def set_list
-    @booking = Booking.find(params[:booking_id])
+  def grapevine
+  @grapevine = Grapevine.find(params[:grapevine_id])
   end
 end
