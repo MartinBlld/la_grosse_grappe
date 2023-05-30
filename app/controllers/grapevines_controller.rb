@@ -16,6 +16,7 @@ class GrapevinesController < ApplicationController
     @grapevine = Grapevine.new(params_grapevine)
     @grapevine.user = current_user
     if @grapevine.save
+
       redirect_to grapevine_path(@grapevine)
     else
       render :new, status: :unprocessable_entity
