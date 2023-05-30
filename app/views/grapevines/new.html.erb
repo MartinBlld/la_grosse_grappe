@@ -1,0 +1,13 @@
+<%= form_with model: @grapevine do |f| %>
+  <%= f.label :grape_variety %>
+  <%= f.text_field :grape_variety %>
+  <%= f.label :organic %>
+  <%= f.text_field :organic %>
+  <%= f.label :area %>
+  <%= f.text_field :area %>
+  <%= f.label :parcel_price %>
+  <%= f.text_field :parcel_price %>
+  <%= f.label :parcel_stock %>
+  <%= f.text_field :parcel_stock %>
+  <%= f.submit %>
+<% end %>
