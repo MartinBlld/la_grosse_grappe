@@ -16,7 +16,7 @@
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
-        <%= link_to grapevines_path, class: "navbar-brand" do %>
+        <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
         <% end %>
 
@@ -47,10 +47,15 @@
         </div>
       </div>
     </div>
-    <%= yield %>
 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
+    <div class="container p-5 my-5">
+      <div class="row">
+        <div class="col">
+          <%= yield %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
