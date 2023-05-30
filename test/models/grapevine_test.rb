@@ -1,6 +1,6 @@
 require "test_helper"
 
-class GravepineTest < ActiveSupport::TestCase
+class GrapevineTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
