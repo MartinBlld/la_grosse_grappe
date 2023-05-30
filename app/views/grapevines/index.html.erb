@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to grapevines_path, class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
 
@@ -35,7 +35,7 @@
 
 <ul>
   <% @grapevines.each do |grapevine| %>
-    <li><%= link_to grapevine.name, grapevine_path%>, <%= grapevine.grape_variety %><%= ", organic" if grapevine.organic == true %>, <%= grapevine.color %>, <%= grapevine.area %></li>
+    <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
   <% end %>
 </ul>
 
