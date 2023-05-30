@@ -1,13 +1,14 @@
-<%= form_with model: @grapevine do |f| %>
-  <%= f.label :grape_variety %>
-  <%= f.text_field :grape_variety %>
-  <%= f.label :organic %>
-  <%= f.text_field :organic %>
-  <%= f.label :area %>
-  <%= f.text_field :area %>
-  <%= f.label :parcel_price %>
-  <%= f.text_field :parcel_price %>
-  <%= f.label :parcel_stock %>
-  <%= f.text_field :parcel_stock %>
+<h1> Hello you're creating a Vine</h1>
+
+<%= simple_form_for(@grapevine) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :grape_variety %>
+  <%= f.input :organic %>
+  <%= f.input :area %>
+  <%= f.input :parcel_price %>
+  <%= f.input :parcel_stock %>
   <%= f.submit %>
 <% end %>
+
+
+<%= link_to "Retour sur mon profil", user_session_path%>
