@@ -8,6 +8,11 @@ class GrapevinesController < ApplicationController
     @grapevine = Grapevine.new
   end
 
+  def show
+    @grapevine = Grapevine.find(params[:id])
+  end
+
+
   def create
     @grapevine = Grapevine.new(params_grapevine)
     @grapevine.user = current_user
