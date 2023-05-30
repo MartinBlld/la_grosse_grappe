@@ -1,4 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :gravepine
+  belongs_to :grapevine
   belongs_to :user
 end

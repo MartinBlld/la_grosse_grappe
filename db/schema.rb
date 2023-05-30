@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_095115) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "parcel_quantity"
-    t.string "strating_year"
+    t.string "starting_year"
     t.string "ending_year"
     t.string "status"
     t.bigint "grapevine_id", null: false

@@ -25,14 +25,11 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:parcel_quantity, :strating_year, :ending_year, :status)
+    params.require(:booking).permit(:parcel_quantity, :starting_year, :ending_year, :status)
   end
 
   def set_list
     @booking = Booking.find(params[:booking_id])
   end
-
-  # t.bigint "grapevine_id", null: false
-  # t.bigint "user_id", null: false
 
 end
