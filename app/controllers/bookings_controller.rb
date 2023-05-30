@@ -6,9 +6,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-
-
-
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -23,8 +20,6 @@ class BookingsController < ApplicationController
     end
   end
 
-
-
   private
 
   def booking_params
@@ -34,5 +29,4 @@ class BookingsController < ApplicationController
   def set_list
     @booking = Booking.find(params[:booking_id])
   end
-
 end

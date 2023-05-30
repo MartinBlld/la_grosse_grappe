@@ -1,10 +1,8 @@
-
-
-<p><%= grapevine.grape_variety %></p>
-<p><%= grapevine.organic %></p>
-<p><%= grapevine.color %></p>
-<p><%= grapevine.area %></p>
+<p><%= @grapevine.grape_variety %></p>
+<p><%= @grapevine.organic %></p>
+<p><%= @grapevine.color %></p>
+<p><%= @grapevine.area %></p>
 
 <div class="btn btn-primary">
-<%= link_to "Je veux louer une partie de cette vigne ! ", new_grapevine_booking_path %>
+<%= link_to "Je veux louer une partie de cette vigne ! ", new_grapevine_booking_path(@grapevine.id) %>
  </div>
