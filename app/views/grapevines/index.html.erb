@@ -1,0 +1,10 @@
+<ul>
+  <% @grapevines.each do |grapevine| %>
+    <li><%= grapevine.grape_variety %></li>
+    <li><%= grapevine.organic %></li>
+    <li><%= grapevine.color %></li>
+    <li><%= grapevine.area %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Créer une nouvelle vigne", new_grapevine_path%>

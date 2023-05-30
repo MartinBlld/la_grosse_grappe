@@ -1,4 +1,5 @@
 class GrapevinesController < ApplicationController
+
   def index
     @grapevines = Grapevine.all
   end
@@ -9,16 +10,17 @@ class GrapevinesController < ApplicationController
 
   def create
     @grapevine = Grapevine.new(params_grapevine)
-    @grapevine.user_id =
+    @grapevine.user = current_user
+    @grapevine.save
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   private
 
   def params_grapevine
-    params.require(:grapevine).permit(:grape_variety, :organic, :organic, :area, :parcel_price, :parcel_stock)
+    params.require(:grapevine).permit(:grape_variety, :organic, :area, :parcel_price, :parcel_stock)
   end
-  
+
 end
