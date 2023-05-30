@@ -1,3 +1,7 @@
-<<%= simple_form_for [@booking, ] do |f| %>
+<<%= simple_form_for [@booking, @grapevine ] do |f| %>
+  <%= f.input :starting_year %>
+  <%= f.input :ending_year %>
+  <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer"%>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
 >

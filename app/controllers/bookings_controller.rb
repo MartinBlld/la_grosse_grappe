@@ -6,21 +6,19 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-
-
-
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.grapevine = @grapevine
+    @booking.status = "Merci pour votre geste ! "
     if @booking.save
+      @grapevine.parcel_stock = @grapevine.parcel_stock - @booking.parcel_quantity
+      @grapevine.save
       redirect_to booking_path(@user)
     else
       render :new, status: :unprocessable_entity
     end
   end
-
-
 
   private
 
@@ -31,5 +29,4 @@ class BookingsController < ApplicationController
   def set_list
     @booking = Booking.find(params[:booking_id])
   end
-
 end
