@@ -6,7 +6,18 @@
 
 <ul>
   <% @grapevines.each do |grapevine| %>
-    <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+    <div class="card-trip m-5">
+    <%= image_tag grapevine.photo, height: 300, width: 400, crop: :fill %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= link_to grapevine.name, grapevine_path(grapevine)%></h2>
+          <p><%= grapevine.color %></p>
+        </div>
+        <h2 class="card-trip-pricing"> <%= grapevine.parcel_price %>€ / parcelle</h2>
+        <%# <img src="../../assets/images/90_stk305254.jpg" class="card-trip-user avatar-bordered" /> %>
+      </div>
+    </div>
+
   <% end %>
 </ul>
 <%= link_to "Créer une nouvelle vigne", new_grapevine_path %>
