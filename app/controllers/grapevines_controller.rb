@@ -43,7 +43,9 @@ class GrapevinesController < ApplicationController
   private
 
   def params_grapevine
-    params.require(:grapevine).permit(:grape_variety, :organic, :area, :parcel_price, :parcel_stock, :photo)
+
+    params.require(:grapevine).permit(:name, :grape_variety, :organic, :area, :parcel_price, :parcel_stock, :photo)
+
   end
 
 end
