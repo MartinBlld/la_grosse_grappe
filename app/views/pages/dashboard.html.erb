@@ -1,15 +1,19 @@
+<div class="p-3">
 <h3>Mes vignes</h3>
 <% if @grapevines.empty? %>
 <p> Vous n'avez pas encore crée de vignes ! </p>
+  <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-primary" %>
 <% else %>
 <ul>
   <% @grapevines.each do |grapevine| %>
     <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
   <% end %>
 </ul>
+  <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-primary" %>
 <% end %>
+</div>
 
-
+<div class="p-3">
 <h3>Mes réservations</h3>
 <% if @bookings.empty? %>
 <p> Vous n'avez pas encore crée de réservations ! </p>
@@ -23,3 +27,4 @@
   <% end %>
 </ul>
 <% end %>
+</div>
