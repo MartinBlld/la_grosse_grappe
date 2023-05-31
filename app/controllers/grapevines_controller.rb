@@ -23,8 +23,16 @@ class GrapevinesController < ApplicationController
     end
   end
 
-  # def edit
-  # end
+  def edit
+    @grapevine = Grapevine.find(params)
+  end
+
+  def update
+    @grapevine = Grapevine.find(params)
+    @grapevine.update(params_grapevine)
+    redirect_to grapevine_path(@grapevine)
+  end
+
 
   private
 
