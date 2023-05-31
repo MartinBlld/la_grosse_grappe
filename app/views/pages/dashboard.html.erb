@@ -1,20 +1,25 @@
 <h3>Mes vignes</h3>
-<% if @current_user.grapevines %>
+<% if @grapevines.empty? %>
+<p> Vous n'avez pas encore crée de vignes ! </p>
+<% else %>
 <ul>
   <% @grapevines.each do |grapevine| %>
     <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
   <% end %>
 </ul>
-<% else %>
-<p> Vous n'avez pas encore crée de vignes ! </p>
 <% end %>
 
 
 <h3>Mes réservations</h3>
+<% if @bookings.empty? %>
+<p> Vous n'avez pas encore crée de réservations ! </p>
+<% else %>
 <ul>
   <% @bookings.each do |booking| %>
-    <li>Qantité louée : <%= booking.parcel_quantity %></li>
+    <li>Vigne louée : <%= booking.grapevine.name %></li>
+    <li>Quantité louée : <%= booking.parcel_quantity %></li>
     <li>Début de location : <%= booking.starting_year %></li>
     <li>Fin de location : <%= booking.ending_year %></li>
   <% end %>
 </ul>
+<% end %>
