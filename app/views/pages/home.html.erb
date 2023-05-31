@@ -1,4 +1,17 @@
 <h1></h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <p>Hello c'est Luc</p>
-<p>Je hais Luc</p>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(photo-banner-home.jpg);">
+  <h1><strong>Parce que l’unité fait le grain, parrainez une Grosse Grappe</strong></h1>
+  <a class="btn btn-primary" href="#">Rechercher ma grosse grappe</a>
+</div>
+
+
+<ul>
+  <% @grapevines.each do |grapevine| %>
+    <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+  <% end %>
+</ul>
+<%= link_to "Créer une nouvelle vigne", new_grapevine_path %>
