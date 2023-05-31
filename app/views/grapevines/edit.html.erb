@@ -1,16 +1,17 @@
-<h1>Vous apportez des modifications au Domaine : <%= @grapevine.name %></h1>
+<h1>Vous apportez des modifications à votre parcelle <%= @grapevine.name %></h1>
 
 <%= simple_form_for(@grapevine) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :grape_variety %>
-  <%= f.input :organic %>
-  <%= f.input :area %>
-  <%= f.input :parcel_price %>
-  <%= f.input :parcel_stock %>
+  <%= f.input :name, label: "Nom de la parcelle :" %>
+  <%= f.input :grape_variety, label: "Cépage de la vigne :" %>
+  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"], label: "Couleur" %>
+  <%= f.input :organic, label: "Biologique ?"%>
+  <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
+  "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
+  <%= f.input :parcel_price , label: "Prix / parcelle :"%>
+  <%= f.input :parcel_stock, label: "Nombre de parcelle louée :"%>
+  <%= f.input :description, label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc." %>
+  <%= f.input :short_description, label: "Légende qui sera assignée à votre parcelle. (150 caractères max)"%>
   <%= f.input :photo, as: :file %>
-  <%= f.input :description, label: "Décrivez votre vignoble (rendement par hectare attendu, spécificité du vin que vous produisez)" %>
-  <%= f.input :short_description , label: "Un court résumé impactant pour inciter les visiteurs à se renseigner (150 caractères max!)"%>
-
   <%= f.submit %>
 <% end %>
 
