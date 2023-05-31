@@ -1,6 +1,7 @@
 <ul>
   <% @grapevines.each do |grapevine| %>
     <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+     <p><%= grapevine.short_description %></p>
   <% end %>
 </ul>
 <%= link_to "Créer une nouvelle vigne", new_grapevine_path %>
