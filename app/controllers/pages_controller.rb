@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+
+  def home
+    @grapevines = Grapevine.all
+  end
 
   def dashboard
     @grapevines = current_user.grapevines

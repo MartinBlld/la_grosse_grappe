@@ -31,11 +31,16 @@ class GrapevinesController < ApplicationController
   end
 
   def edit
-    @grapevine = Grapevine.find(params)
+    @grapevine = Grapevine.find(params[:id])
   end
 
   def update
-    @grapevine = Grapevine.find(params)
+    @grapevine = Grapevine.find(params[:id])
+    if @grapevine.photo.blank?
+      # Définir la photo par défaut
+      default_photo_path = Rails.root.join('app', 'assets', 'images', 'default-image-grappe.jpeg')
+      @grapevine.photo.attach(io: File.open(default_photo_path), filename: 'default-image-grappe.jpeg', content_type: 'image/jpg')
+    end
     @grapevine.update(params_grapevine)
     redirect_to grapevine_path(@grapevine)
   end
