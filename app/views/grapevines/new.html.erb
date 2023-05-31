@@ -1,5 +1,5 @@
 <div class="p-3">
-<h1 class="mt-2">Bienvenue dans la création de votre vigne !</h1>
+<h1 class="mt-2">Bienvenue dans la création de votre parcelle !</h1>
 
 <%= simple_form_for(@grapevine) do |f| %>
 
@@ -11,7 +11,10 @@
 "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
   <%= f.input :parcel_price , label: "Prix / parcelle"%>
   <%= f.input :parcel_stock, label: "Nombre de parcelle louée"%>
+  <%= f.input :description, label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc." %>
+  <%= f.input :short_description , label: "Légende qui sera assignée à votre parcelle. (150 caractères max)"%>
   <%= f.input :photo, as: :file %>
+
   <%= f.button :submit, "Créer ma vigne", class: "btn btn-primary"%>
 <% end %>
 
