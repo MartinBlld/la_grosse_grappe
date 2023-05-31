@@ -2,8 +2,10 @@
 <h1 class="mt-2">Bienvenue dans la création de votre vigne !</h1>
 
 <%= simple_form_for(@grapevine) do |f| %>
+
   <%= f.input :name, label: "Nom de la vigne" %>
   <%= f.input :grape_variety, label: "Variété de la vigne" %>
+  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé"], label: "Couleur" %>
   <%= f.input :organic, label: "Biologique ?"%>
   <%= f.input :area, label: "Zone" %>
   <%= f.input :parcel_price , label: "Prix de la parcelle"%>

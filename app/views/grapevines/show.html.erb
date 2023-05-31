@@ -1,16 +1,32 @@
-<%= link_to "Retour", grapevines_path %>
+<p class="ms-1"><%= link_to "Retour", grapevines_path %></p>
 <div class="m-3">
+  <div>
+    <h3><strong><%= @grapevine.name %></strong></h3>
+    <p><u><%= @grapevine.area %></u></p>
+  </div>
 
-<%= image_tag @grapevine.photo, height: 300, width: 400, crop: :fill %>
 
-  <p><%= @grapevine.grape_variety %></p>
-  <p><%= "organic" if @grapevine.organic %></p>
-  <p><%= @grapevine.color %></p>
-  <p><%= @grapevine.area %></p>
+  <% if  @grapevine.photo %>
+  <%= image_tag @grapevine.photo, class: "vine-img" %>
+
+  <% else %>
+    <%= image_tag "default-image-grappe", class: "vine-img" %>
+  <% end %>
+
+
+  <div>
+    <h5>C'est la vigne de <%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %> !</h5>
+    <p class=""><%= @grapevine.parcel_stock %> hectares</p>
+  </div>
+
+  <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
+    <p>Cépage: <%= @grapevine.grape_variety %></p>
+    <p><%= "Biologique" if @grapevine.organic %></p>
+    <p>Couleur de vin: <%= @grapevine.color %></p>
+  </div>
 </div>
 
+<div class="ms-2 text-center">
 
-
-<div class="ms-2">
   <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn btn-primary" %>
 </div>
