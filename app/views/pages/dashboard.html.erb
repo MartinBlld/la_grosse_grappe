@@ -1,7 +1,7 @@
 <div class="p-3">
 <h3>Mes vignes</h3>
 <% if @grapevines.empty? %>
-<p> Vous n'avez pas encore crée de vignes ! </p>
+<p> Vous n'avez pas encore créé de vigne. </p>
   <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-primary" %>
 <% else %>
 <ul>
@@ -17,11 +17,11 @@
 <div class="p-3">
 <h3>Mes réservations</h3>
 <% if @bookings.empty? %>
-<p> Vous n'avez pas encore crée de réservations ! </p>
+<p> Vous n'avez pas encore créé de réservation. </p>
 <% else %>
 <ul>
   <% @bookings.each do |booking| %>
-    <li>Vigne louée : <%= booking.grapevine.name %></li>
+    <li>Parcelle louée : <%= booking.grapevine.name %></li>
     <li>Quantité louée : <%= booking.parcel_quantity %></li>
     <li>Début de location : <%= booking.starting_year %></li>
     <li>Fin de location : <%= booking.ending_year %></li>
