@@ -1,23 +1,23 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= asset_path('photo-banner-home.jpg')%>);">
-  <h1><strong>Parce que l’unité fait le grain, parrainez une Grosse Grappe</strong></h1>
-  <%# <a class="btn btn-primary ml-5" href="#">Rechercher ma grosse grappe</a> %>
+  <div class="container">
+    <h1><strong>Parce que l’unité fait le grain, parrainez une Grosse Grappe</strong></h1>
+    <p>Célébrez Dionysos, dieu du vin, et vos vignes se gorgeront de sucre !</p>
+      <div class="cards-homepage">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('istockphoto-670385840-612x612.jpg')%>)">
+          Je suis vigneron
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('pexels-pavel-danilyuk-8775186.jpeg')%>)">
+          J'ai soif
+        </div>
+      </div>
+  </div>
 </div>
 
+<div class="container">
+<h2 class ="mt-4 mb-4">Qu'est ce que Grosse Grappe ?</h2>
+<p>Chez Grosse Grappe, nous vous offrons une expérience unique : la location de parcelles de vignes.</p>
+<p>Devenez vigneron d'un jour en adoptant votre propre parcelle, choisissez votre cépage préféré et participez à toutes les étapes de la viticulture.</p>
+<p>Notre équipe passionnée vous guidera dans cette aventure, du plantage des vignes à la récolte. Vous pourrez même déguster votre propre vin lors d'une dégustation exclusive. Rejoignez-nous chez Grosse Grappe pour vivre la magie de la viticulture et créer des souvenirs inoubliables.</p>
+</div>
 
-<ul>
-  <% @grapevines.each do |grapevine| %>
-    <div class="card-trip m-5">
-    <%= image_tag grapevine.photo, height: 300, width: 400, crop: :fill %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= link_to grapevine.name, grapevine_path(grapevine)%></h2>
-          <p><%= grapevine.color %></p>
-        </div>
-        <h2 class="card-trip-pricing"> <%= grapevine.parcel_price %>€ / parcelle</h2>
-        <%# <img src="../../assets/images/90_stk305254.jpg" class="card-trip-user avatar-bordered" /> %>
-      </div>
-    </div>
-
-  <% end %>
-</ul>
-<%= link_to "Créer une nouvelle vigne", new_grapevine_path %>
+    <%# <a class="btn btn-primary ml-5" href="#">Rechercher ma grosse grappe</a> %>
