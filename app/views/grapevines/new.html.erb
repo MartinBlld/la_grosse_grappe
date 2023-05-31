@@ -3,18 +3,19 @@
 
 <%= simple_form_for(@grapevine) do |f| %>
 
-  <%= f.input :name, label: "Nom de la vigne" %>
-  <%= f.input :grape_variety, label: "Variété de la vigne" %>
-  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé"], label: "Couleur" %>
+  <%= f.input :name, label: "Nom de la parcelle" %>
+  <%= f.input :grape_variety, label: "Cépage de la vigne" %>
+  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"], label: "Couleur" %>
   <%= f.input :organic, label: "Biologique ?"%>
-  <%= f.input :area, label: "Zone" %>
-  <%= f.input :parcel_price , label: "Prix de la parcelle"%>
-  <%= f.input :parcel_stock, label: "Parcelle disponible"%>
+  <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
+"Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
+  <%= f.input :parcel_price , label: "Prix / parcelle"%>
+  <%= f.input :parcel_stock, label: "Nombre de parcelle louée"%>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, "Créer ma vigne", class: "btn btn-primary"%>
 <% end %>
 
 <div class="mt-3">
-<%= link_to "< Retour sur mon profil", user_session_path%>
+<%= link_to "< Revenir sur mon profil", user_session_path%>
 </div>
 </div>
