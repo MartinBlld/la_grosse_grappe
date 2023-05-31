@@ -3,6 +3,7 @@
 <%= simple_form_for(@grapevine) do |f| %>
   <%= f.input :name %>
   <%= f.input :grape_variety %>
+  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé"] %>
   <%= f.input :organic %>
   <%= f.input :area %>
   <%= f.input :parcel_price %>

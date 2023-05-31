@@ -5,7 +5,14 @@
     <p><u><%= @grapevine.area %></u></p>
   </div>
 
-  <p><%= image_tag @grapevine.photo, crop: :fill, class: "vine-img" %></p>
+
+  <% if  @grapevine.photo %>
+  <%= image_tag @grapevine.photo, class: "vine-img" %>
+
+  <% else %>
+    <%= image_tag "default-image-grappe", class: "vine-img" %>
+  <% end %>
+
 
   <div>
     <h5>C'est la vigne de <%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %> !</h5>
@@ -20,5 +27,6 @@
 </div>
 
 <div class="ms-2 text-center">
+
   <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn btn-primary" %>
 </div>
