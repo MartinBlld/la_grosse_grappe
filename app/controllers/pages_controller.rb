@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :home
+  before_action :authenticate_user!
 
   def dashboard
-    @grapevines = Grapevine.all
+    @grapevines = current_user.grapevines
+    @bookings = current_user.bookings
   end
 
   private
