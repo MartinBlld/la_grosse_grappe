@@ -1,0 +1,14 @@
+<h1>Vous apportez des modifications au Domaine : <%= @grapevine.name %></h1>
+
+<%= simple_form_for(@grapevine) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :grape_variety %>
+  <%= f.input :organic %>
+  <%= f.input :area %>
+  <%= f.input :parcel_price %>
+  <%= f.input :parcel_stock %>
+  <%= f.submit %>
+<% end %>
+
+
+<%= link_to "Retour sur mon profil", user_session_path%>

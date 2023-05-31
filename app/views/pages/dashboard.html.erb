@@ -5,6 +5,7 @@
 <ul>
   <% @grapevines.each do |grapevine| %>
     <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+      <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
   <% end %>
 </ul>
 <% end %>
