@@ -1,12 +1,16 @@
 <%= link_to "Retour", grapevines_path %>
 <div class="m-3">
+
+<%= image_tag @grapevine.photo, height: 300, width: 400, crop: :fill %>
+
   <p><%= @grapevine.grape_variety %></p>
   <p><%= "organic" if @grapevine.organic %></p>
   <p><%= @grapevine.color %></p>
   <p><%= @grapevine.area %></p>
 </div>
 
+
+
 <div class="ms-2">
   <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn btn-primary" %>
 </div>
-
