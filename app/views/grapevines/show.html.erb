@@ -5,7 +5,7 @@
     <p><u><%= @grapevine.area %></u></p>
   </div>
 
-  <p><%= image_tag "default-image-grappe", class: "vine-img" %></p>
+  <p><%= image_tag @grapevine.photo, crop: :fill, class: "vine-img" %></p>
 
   <div>
     <h5>C'est la vigne de <%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %> !</h5>
