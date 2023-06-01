@@ -71,6 +71,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_145232) do
     t.index ["user_id"], name: "index_grapevines_on_user_id"
   end
 
+  create_table "gravepines", force: :cascade do |t|
+    t.string "grape_variety"
+    t.boolean "organic"
+    t.string "color"
+    t.string "area"
+    t.integer "parcel_price"
+    t.integer "parcel_stock"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_gravepines_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,4 +105,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_145232) do
   add_foreign_key "bookings", "grapevines"
   add_foreign_key "bookings", "users"
   add_foreign_key "grapevines", "users"
+  add_foreign_key "gravepines", "users"
 end
