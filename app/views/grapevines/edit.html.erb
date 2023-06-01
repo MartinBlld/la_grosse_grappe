@@ -8,6 +8,9 @@
   <%= f.input :parcel_price %>
   <%= f.input :parcel_stock %>
   <%= f.input :photo, as: :file %>
+  <%= f.input :description, label: "Décrivez votre vignoble (rendement par hectare attendu, spécificité du vin que vous produisez)" %>
+  <%= f.input :short_description , label: "Un court résumé impactant pour inciter les visiteurs à se renseigner (150 caractères max!)"%>
+
   <%= f.submit %>
 <% end %>
 
