@@ -47,7 +47,22 @@
       <% end %>
     </div>
 
+<<<<<<< HEAD
   <div class="p-3 text-center">
     <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn-bordeaux" %>
   </div>
   </div>
+=======
+<div class="p-3 text-center">
+  <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn-bordeaux" %>
+</div>
+</div>
+
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-marker-value="<%= @marker.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">``
+</div>
+>>>>>>> f870134bed8477f2e262c7ad97506b318012d26c

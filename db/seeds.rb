@@ -32,6 +32,10 @@ User.destroy_all
 
 puts "seeding"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f870134bed8477f2e262c7ad97506b318012d26c
 User.create!(first_name: "Ermanno", last_name: "di Giulio", phone_number: "06 1", winemaker: false, email: "digiulioermanno@gmail.com", password: "Magrossegrappe")
 
 puts "done"

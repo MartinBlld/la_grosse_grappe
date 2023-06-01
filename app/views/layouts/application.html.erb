@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
   </head>
 
@@ -30,21 +32,22 @@
             <li class="nav-item centered-element">
               <%= link_to "Faire parrainer ma vigne", new_grapevine_path, class: "btn-bordeaux" %>
             </li>
+
             <% if user_signed_in? %>
+              <span class="d-flex justify-content-center align-items-center me-3">
+                Bonjour <%= current_user.first_name %>
+              </span>
 
-            <span class="d-flex justify-content-center align-items-center me-3">
-              Bonjour <%= current_user.first_name %>
-            </span>
-              <li class="nav-item dropdown">
-
-                <%= image_tag "borat-mankini-fines.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% if current_user.photo.present? %>
+                  <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <%= image_tag "default-image-grappe.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "Mon Dashboard", dashboard_path, class: "dropdown-item" %>
-
                   <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
-              </li>
             <% else %>
                <li class="nav-item centered-element">
                 <%= link_to "Se connecter", new_user_session_path, class: "nav-link btn-navy" %>
@@ -54,23 +57,23 @@
         </div>
       </div>
     </div>
-<div class="main-container">
-          <%= yield %>
-</div>
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-  </div>
-</div>
+    <div class="main-container">
+              <%= yield %>
+    </div>
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      </div>
+    </div>
 
   </body>
 </html>

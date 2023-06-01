@@ -1,30 +1,35 @@
-<div class="p-3">
-<h3>Mes vignes</h3>
-<% if @grapevines.empty? %>
-<p> Vous n'avez pas encore créé de vigne. </p>
-  <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-primary" %>
-<% else %>
-<ul>
-  <% @grapevines.each do |grapevine| %>
-    <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
-      <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
-  <% end %>
-</ul>
-  <%= link_to "Créer ma parcelle de vigne", new_grapevine_path, class: "btn-bordeaux" %>
-<% end %>
-</div>
+<div>
+  <div class="p-3">
+    <h3>Mes vignes</h3>
 
-<div class="p-3">
-<h3>Mes réservations</h3>
-<% if @bookings.empty? %>
-<p> Vous n'avez pas encore créé de réservation. </p>
-<% else %>
-<ul>
-  <% @bookings.each do |booking| %>
-    <li>Parcelle louée : <%= booking.grapevine.name %></li>
-    <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
-    <li>Durée de la location : <%= booking.years %> ans</li>
-  <% end %>
-</ul>
-<% end %>
+    <% if @grapevines.empty? %>
+      <p> Vous n'avez pas encore créé de vigne. </p>
+      <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-primary" %>
+    <% else %>
+      <ul>
+        <% @grapevines.each do |grapevine| %>
+          <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+            <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
+        <% end %>
+      </ul>
+
+      <%= link_to "Créer ma parcelle de vigne", new_grapevine_path, class: "btn-bordeaux" %>
+    <% end %>
+  </div>
+
+  <div class="p-3">
+    <h3>Mes réservations</h3>
+
+    <% if @bookings.empty? %>
+      <p> Vous n'avez pas encore créé de réservation. </p>
+    <% else %>
+      <ul>
+        <% @bookings.each do |booking| %>
+          <li>Parcelle louée : <%= booking.grapevine.name %></li>
+          <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
+          <li>Durée de la location : <%= booking.years %> ans</li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
