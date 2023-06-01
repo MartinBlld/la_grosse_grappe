@@ -31,6 +31,7 @@
               <%= link_to "Faire parrainer ma vigne", new_grapevine_path, class: "btn-bordeaux" %>
             </li>
             <% if user_signed_in? %>
+
             <span class="d-flex justify-content-center align-items-center me-3">
               Bonjour <%= current_user.first_name %>
             </span>

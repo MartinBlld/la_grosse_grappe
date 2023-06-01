@@ -1,9 +1,43 @@
-<p class="ms-1"><%= link_to "Retour", grapevines_path %></p>
-<div class="m-3">
-  <div>
-    <h3><strong><%= @grapevine.name %></strong></h3>
-    <p><u><%= @grapevine.area %></u></p>
+<p class="ms-1"><%= link_to "Retour", grapevines_path, class: "button-retour" %></p>
+<div class="container">
+  <div class="m-3">
+    <div>
+      <h3><strong><%= @grapevine.name %></strong></h3>
+      <p id=""><strong><u><%= @grapevine.area %></u></strong></p>
+    </div>
+
+    <div class="card-trip-show">
+      <div class="box-rounded d-flex mx-auto">
+        <% if  @grapevine.photo %>
+          <%= image_tag @grapevine.photo, class: "vine-img me-3 w-75" %>
+        <% else %>
+          <%= image_tag "default-image-grappe", class: "vine-img " %>
+        <% end %>
+
+        <%= image_tag "default-image-grappe", class: "vine-img" %>
+      </div>
+
+      <div class="card-trip-infos-show">
+        <div>
+          <h5>C'est la vigne de <strong><%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %></strong> !</h5>
+          <p><%= @grapevine.parcel_stock %> hectares</p>
+        </div>
+        <%= image_tag "borat-mankini-fines.jpg", class: "avatar card-trip-infos-show card-trip-user-show", id: "photo-profil", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      </div>
+    </div>
+
+    <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
+      <p><strong>Cépage:</strong> <%= @grapevine.grape_variety %></p>
+      <p><strong><%= "Biologique" if @grapevine.organic %></strong></p>
+      <p><strong>Couleur de vin:</strong> <%= @grapevine.color %></p>
+      <p>Annulation de réservation gratuite avant le <strong><%= Date.today - 1.day%></strong></p>
+    </div>
+    <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
+      <h4><strong>Description:</strong></h4>
+      <p><%= @grapevine.description %></p>
+    </div>
   </div>
+
 
 
   <% if  @grapevine.photo %>

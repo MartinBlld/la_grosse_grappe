@@ -1,6 +1,9 @@
 .vine-img {
   width: 800px;
-  height: 300px
+  height: 300px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .separation-horizontal {
@@ -8,3 +11,52 @@
   border-top-style: solid;
 }
 
+p, h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+#photo-profil {
+  position: relative;
+  right: 540px;
+  top: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+.card-trip-show {
+  overflow: hidden;
+}
+
+.card-trip-show > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip-show p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip-show .card-trip-infos-show {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+// .card-trip-infos-show .card-trip-user-show {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
