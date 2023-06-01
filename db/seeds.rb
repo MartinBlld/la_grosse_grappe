@@ -32,10 +32,6 @@ User.destroy_all
 
 puts "seeding"
 
-User.create!(first_name: "Martin", last_name: "Boulland", phone_number: "17", winemaker: false, email: "martinboulland@gmail.com", password: "MarTin321")
-User.create!(first_name: "Valentine", last_name: "Cousin", phone_number: "112", winemaker: false, email: "valentinecousin@gmail.com", password: "CoucouVal56")
-User.create!(first_name: "Luc", last_name: "Perrot", phone_number: "15", winemaker: true, email: "lucperrot@gmail.com", password: "luc.reverse")
 User.create!(first_name: "Ermanno", last_name: "di Giulio", phone_number: "06 1", winemaker: false, email: "digiulioermanno@gmail.com", password: "Magrossegrappe")
-User.create!(first_name: "Chaise", last_name: "Basse", phone_number: "17", winemaker: true, email: "chaisebasse@gmail.com", password: "sound.mp3")
 
 puts "done"

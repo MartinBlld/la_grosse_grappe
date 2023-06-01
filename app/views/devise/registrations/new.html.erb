@@ -12,6 +12,9 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Nom de famille" }%>
+    <%= f.input :photo,
+                required: false,
+                as: :file%>
     <%= f.input :winemaker,
                 required: true,
                 autofocus: true,
