@@ -14,13 +14,12 @@
         <% else %>
           <%= image_tag "default-image-grappe", class: "vine-img " %>
         <% end %>
+      </div>
 
-       <div style="width: 100%;"
-  data-controller="map"
-  data-map-marker-value="<%= @marker.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">``
-</div>
-
+      <div style="width: 100%;"
+        data-controller="map"
+        data-map-marker-value="<%= @marker.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">``
       </div>
 
       <div class="card-trip-show">
@@ -52,19 +51,17 @@
         <p class="fs-6">Annulation de réservation gratuite avant le <strong><%= Date.today - 1.day%></strong></p>
       </div>
       <% if @grapevine.description.empty? %>
-      <div class="separation-horizontal pt-4 d-none" style="border-top-color: rgb(221, 221, 221)">
-        <h2><strong>Description :</strong></h2>
-        <p class="fs-6"><%= @grapevine.description %></p>
-      </div>
+        <div class="separation-horizontal pt-4 d-none" style="border-top-color: rgb(221, 221, 221)">
+          <h2><strong>Description :</strong></h2>
+          <p class="fs-6"><%= @grapevine.description %></p>
+        </div>
       <% else %>
         <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
-        <h4><strong>Description :</strong></h4>
-        <p class="fs-6"><%= @grapevine.description %></p>
-      </div>
+          <h4><strong>Description :</strong></h4>
+          <p class="fs-6"><%= @grapevine.description %></p>
+        </div>
       <% end %>
     </div>
-
-    <% end %>
   </div>
 
 <div class="p-3 text-center">
