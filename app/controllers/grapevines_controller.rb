@@ -10,6 +10,7 @@ class GrapevinesController < ApplicationController
 
   def show
     @grapevine = Grapevine.find(params[:id])
+    @marker = [{ lat: @grapevine.latitude, lng: @grapevine.longitude }]
   end
 
   def create
@@ -51,7 +52,7 @@ class GrapevinesController < ApplicationController
   def params_grapevine
 
     params.require(:grapevine).permit(:name, :grape_variety, :color, :organic, :area, :parcel_price, :parcel_stock,
-       :photo, :description, :short_description, :rental_period)
+       :photo, :description, :short_description, :rental_period, :latitude, :longitude, :address)
 
   end
 

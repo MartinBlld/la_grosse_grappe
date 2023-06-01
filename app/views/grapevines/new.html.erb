@@ -7,8 +7,12 @@
   <%= f.input :grape_variety, label: "Cépage de la vigne" %>
   <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"], label: "Couleur" %>
   <%= f.input :organic, label: "Biologique ?"%>
+  <%= f.input :address,
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  %>
   <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
-"Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
+  "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
   <%= f.input :parcel_price , label: "Prix / parcelle"%>
   <%= f.input :parcel_stock, label: "Nombre de parcelle louée"%>
    <%= f.input :rental_period, collection: (1..10), label: "Nombre d'année maximum pendant laquelle une parcelle est louée" %>
