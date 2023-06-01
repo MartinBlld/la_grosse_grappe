@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/mapbox__mapbox-gl-geocoder": "^4.7.3"
+  }
+}
