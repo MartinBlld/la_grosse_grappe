@@ -4,7 +4,7 @@
 
     <% if @grapevines.empty? %>
       <p> Vous n'avez pas encore créé de vigne. </p>
-      <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-primary" %>
+      <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-bordeaux" %>
     <% else %>
       <ul>
         <% @grapevines.each do |grapevine| %>
