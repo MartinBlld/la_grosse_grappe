@@ -1,7 +1,6 @@
-
-  <div class="container">
-    <div class="row" data-controller="price-count"  data-price-count-price-value="<%= @grapevine.parcel_price%>">
-     <div class="col-6 " >
+<div class="container">
+  <div class="row mt-3" data-controller="price-count"  data-price-count-price-value="<%= @grapevine.parcel_price%>">
+     <div class="col-6" >
         <%= simple_form_for [@grapevine, @booking],
           html: {
               data: {
@@ -16,8 +15,8 @@
             action: 'change->price-count#updatePrice'
             }
           } %>
-        <div data-target="price-count" data-action=>
-        <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer",
+        <div data-target="price-count" data-action="">
+        <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer ?",
          input_html: {
           data: {
             flatpickr_target: 'parcelQuantityInput',
@@ -25,13 +24,14 @@
             action: 'change->price-count#updatePrice'
           }
         } %>
-         <%= f.submit "Submit review", class: "btn btn-primary" %>
+         <%= f.submit "Je loue !", class: "btn-bordeaux" %>
+
         <% end %>
-       </div>
+        </div>
       </div>
-      <div class="col-6 ml-5 pl-5">
-     <%= image_tag @grapevine.photo %>
-    <h2 style="color:black" >Prix total: <span data-price-count-target="priceHolder"><%= @grapevine.parcel_price %></span> €</h2>
-    </div>
+      <div class="col-6 ml-5 p-3 card-trip">
+          <%= image_tag @grapevine.photo %>
+            <h2 style="color:black" class="p-3">Prix total: <span data-price-count-target="priceHolder"><%= @grapevine.parcel_price %></span> €</h2>
+      </div>
   </div>
 </div>

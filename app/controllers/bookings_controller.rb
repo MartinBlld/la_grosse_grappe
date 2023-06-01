@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: :destroy
-   before_action :grapevine, only: [ :new, :create]
+   before_action :grapevine, only: [:new, :create]
 
   def new
     # @grapevine = Grapevine.find(params[:grapevine_id])

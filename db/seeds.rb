@@ -31,30 +31,8 @@ Grapevine.destroy_all
 User.destroy_all
 
 puts "seeding"
-# martin    =
-# valentine =
-# luc       =
-# ermanno   =
-# chaise    =
 
 
 User.create!(first_name: "Ermanno", last_name: "di Giulio", phone_number: "06 1", winemaker: false, email: "digiulioermanno@gmail.com", password: "Magrossegrappe")
-
-
-# chardonnay = Grapevine.create(name: "Domaine du Chêne Blanc", grape_variety: "Chardonnay", organic: false, color: "red", area: "Languedoc Roussillon", parcel_price: 3000, parcel_stock: 10, photo: nil)
-# chardonnay.user = martin
-# chardonnay.save!
-# cabernet_sauvignon = Grapevine.create(name: "Château de l'Aube Étoilée", grape_variety: "Cabernet Sauvignon", organic: true, color: "white", area: "IGP Calvados", parcel_price: 1300, parcel_stock: 5, photo: nil)
-# cabernet_sauvignon.user = valentine
-# cabernet_sauvignon.save!
-# pinot_noir = Grapevine.create(name: "Clos des Secrets Mystiques", grape_variety: "Pinot Noir", organic: false, color: "red", area: "Vallée du Rhône", parcel_price: 7000, parcel_stock: 30, photo: nil)
-# pinot_noir.user = luc
-# pinot_noir.save!
-# sauvignon_blanc = Grapevine.create(name: "Domaine de la Vigne d'Argent", grape_variety: "Sauvignon Blanc", organic: false, color: "rosé", area: "Bordeaux", parcel_price: 2050, parcel_stock: 7, photo: nil)
-# sauvignon_blanc.user = ermanno
-# sauvignon_blanc.save!
-# syrah = Grapevine.create(name: "Château des Brumes Enchantées", grape_variety: "Syrah", organic: true, color: "rosé", area: "Bourgogne", parcel_price: 2900, parcel_stock: 15, photo: nil)
-# syrah.user = chaise
-# syrah.save!
 
 puts "done"

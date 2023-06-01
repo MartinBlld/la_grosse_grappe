@@ -6,9 +6,14 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @grapevines = current_user.grapevines
-    @bookings = current_user.bookings
+    if user_signed_in?
+      @grapevines = current_user.grapevines
+      @bookings = current_user.bookings
+    else
+      redirect_to new_user_session_path
+    end
   end
+
 
   private
 
