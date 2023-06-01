@@ -1,26 +1,39 @@
 
   <div class="container">
-    <div class="row">
-     <div class="col-6 p-5" data-controller="price-count">
-        <%= simple_form_for [@grapevine, @booking] do |f| %>
-        <div data-target="price-count" data-action="change->price-count#updatePriceCounter">
-        <%= f.input :years, collection: (1..@grapevine.rental_period), label: "Nombre d'année maximum pendant laquelle une parcelle est louée"  %>
-        </div>
-        <div data-target="price-count" data-action="change->price-count#updatePriceCounter">
-        <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer" %>
-        </div>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
+
+    <div class="row" data-controller="price-count"  data-price-count-price-value="<%= @grapevine.parcel_price%>">
+     <div class="col-6 " >
+        <%= simple_form_for [@grapevine, @booking],
+          html: {
+              data: {
+              controller: 'flatpickr'
+              }
+          } do |f| %>
+        <%= f.input :years, collection: (1..@grapevine.rental_period), label: "Nombre d'année maximum pendant laquelle une parcelle est louée",
+         input_html: {
+           data: {
+            flatpickr_target: 'yearsInput',
+            price_count_target: 'yearsInput',
+            action: 'change->price-count#updatePrice'
+            }
+          } %>
+        <div data-target="price-count" data-action=>
+        <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer ?",
+         input_html: {
+          data: {
+            flatpickr_target: 'parcelQuantityInput',
+            price_count_target: 'parcelQuantityInput',
+            action: 'change->price-count#updatePrice'
+          }
+        } %>
+         <%= f.submit "Submit review", class: "btn btn-primary" %>
+
         <% end %>
+       </div>
       </div>
-    <div class="col-6 p-5">
-      <%= image_tag @grapevine.photo %>
-     <div class="d-flex">
-  <h3>Prix total:</h3>
-  <div data-price-count-target="counter"></div>
-
-</div>
-
-</div>
-    </div>
+      <div class="col-6 ml-5 pl-5">
+     <%= image_tag @grapevine.photo %>
+    <h2 style="color:black" >Prix total: <span data-price-count-target="priceHolder"><%= @grapevine.parcel_price %></span> €</h2>
     </div>
   </div>
+</div>
