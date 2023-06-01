@@ -30,14 +30,18 @@
             <li class="nav-item centered-element ">
               <%= link_to "Faire parrainer ma vigne", new_grapevine_path, class: "btn-bordeaux" %>
             </li>
+            
             <% if user_signed_in? %>
+              <span class="d-flex justify-content-center align-items-center me-3">
+                Bonjour <%= current_user.first_name %>
+              </span>
 
-            <span class="d-flex justify-content-center align-items-center me-3">
-              Bonjour <%= current_user.first_name %>
-            </span>
               <li class="nav-item dropdown">
-
-                <%= image_tag "borat-mankini-fines.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% if @user.photo.present? %>
+                  <%= image_tag @user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <%= image_tag "borat-mankini-fines.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
