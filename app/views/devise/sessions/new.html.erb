@@ -1,6 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= asset_path('photo-banner-home.jpg')%>);">
 
-
   <div class="container">
     <h1><strong>Se connecter</strong></h1>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -8,12 +7,17 @@
           <%= f.input :email,
                       required: false,
                       autofocus: true,
-                      input_html: { autocomplete: "Email" },
-                      input_html: { class: "white-text" } %>
-          <%= f.input :password, label:"Mot de passe",
+                      label_html: { class: "white-text" },
+                      input_html: { autocomplete: "Email" } %>
+          <%= f.input :password,
+                      label:"Mot de passe",
                       required: false,
+                      label_html: { class: "white-text" },
                       input_html: { autocomplete: "Mot de passe actuel" } %>
-          <%= f.input :remember_me, label:"Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :remember_me,
+                      label:"Se souvenir de moi",
+                      label_html: { class: "white-text" },
+                      as: :boolean if devise_mapping.rememberable? %>
         </div>
 
         <div class="form-actions">
@@ -22,3 +26,4 @@
       <% end %>
       <%= render "devise/shared/links" %>
   </div>
+</div>

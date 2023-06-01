@@ -1,9 +1,11 @@
 .vine-img {
   width: 800px;
   height: 300px;
+  object-fit: cover;
 
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
 }
 
 .separation-horizontal {
@@ -15,8 +17,8 @@ p, h1, h2, h3, h4, h5, h6 {
   color: black;
 }
 
-#photo-profil {
-  position: relative;
+.photo-profil {
+  position: left;
   right: 540px;
   top: 10px;
   width: 80px;
@@ -25,12 +27,14 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .card-trip-show {
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .card-trip-show > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .card-trip-show h2 {
@@ -52,6 +56,7 @@ p, h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  border-radius: 10px;
 }
 
 // .card-trip-infos-show .card-trip-user-show {
