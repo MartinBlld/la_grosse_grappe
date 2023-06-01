@@ -4,4 +4,7 @@ class Grapevine < ApplicationRecord
   has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  validates :parcel_stock, presence: true
+  validates :rental_period, presence: true
 end

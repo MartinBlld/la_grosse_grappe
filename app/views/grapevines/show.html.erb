@@ -1,60 +1,60 @@
-
 <div class="container">
-<p class="p-3"><%= link_to "<Retour", grapevines_path, class: "button-retour" %></p>
-  <div class="m-3">
-    <div>
-      <h3><strong><%= @grapevine.name %></strong></h3>
-      <p id=""><strong><u><%= @grapevine.area %></u></strong></p>
-    </div>
-
-    <div class="card-trip-show">
-      <div class="box-rounded d-flex mx-auto">
-        <% if  @grapevine.photo %>
-          <%= image_tag @grapevine.photo, class: "vine-img me-3 w-75" %>
-        <% else %>
-          <%= image_tag "default-image-grappe", class: "vine-img " %>
-        <% end %>
-
-        <%= image_tag "default-image-grappe", class: "vine-img" %>
+  <p class="p-3"><%= link_to "< Retour", grapevines_path, class: "button-retour" %></p>
+    <div class="m-3">
+      <div>
+        <h3><strong><%= @grapevine.name %></strong></h3>
+        <p id=""><strong><u><%= @grapevine.area %></u></strong></p>
       </div>
 
-      <div class="card-trip-infos-show">
-        <div>
-          <h5>C'est la vigne de <strong><%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %></strong> !</h5>
-          <p><%= @grapevine.parcel_stock %> hectares</p>
+      <div class="card-trip-show">
+        <div class="d-flex mx-auto">
+          <% if  @grapevine.photo %>
+              <%= image_tag @grapevine.photo, class: "vine-img me-3 w-75" %>
+            <% else %>
+              <%= image_tag "default-image-grappe", class: "vine-img me-3 w-75" %>
+            <% end %>
+            <%= image_tag "default-image-grappe", class: "vine-img w-25" %>
         </div>
-        <%= image_tag "borat-mankini-fines.jpg", class: "avatar card-trip-infos-show card-trip-user-show", id: "photo-profil", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+        <div class="card-trip-infos-show">
+          <div class="d-flex align-items-center gap-3">
+            <div class="">
+              <%= image_tag "borat-mankini-fines.jpg", class: "avatar", id: "photo-profil", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+            <div class="">
+              <h5>C'est la vigne de <strong><%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %></strong> !</h5>
+            </div>
+          </div>
+        </div>
+
+      <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
+        <p class="fs-6"><strong>Nombre total de parcelle disponible à la location : </strong><%= @grapevine.parcel_stock %></p>
+        <p class="fs-6"><strong>Cépage :</strong> <%= @grapevine.grape_variety %></p>
+        <p class="fs-6"><strong><%= "Biologique" if @grapevine.organic %></strong></p>
+        <p class="fs-6"><strong>Couleur de vin :</strong> <%= @grapevine.color %></p>
+        <p class="fs-6">Annulation de réservation gratuite avant le <strong><%= Date.today - 1.day%></strong></p>
       </div>
+      <% if @grapevine.description.empty? %>
+      <div class="separation-horizontal pt-4 d-none" style="border-top-color: rgb(221, 221, 221)">
+        <h2><strong>Description :</strong></h2>
+        <p class="fs-6"><%= @grapevine.description %></p>
+      </div>
+      <% else %>
+        <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
+        <h4><strong>Description :</strong></h4>
+        <p class="fs-6"><%= @grapevine.description %></p>
+      </div>
+      <% end %>
     </div>
 
-    <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
-      <p><strong>Cépage:</strong> <%= @grapevine.grape_variety %></p>
-      <p><strong><%= "Biologique" if @grapevine.organic %></strong></p>
-      <p><strong>Couleur de vin:</strong> <%= @grapevine.color %></p>
-      <p>Annulation de réservation gratuite avant le <strong><%= Date.today - 1.day%></strong></p>
-    </div>
-    <% if @grapevine.description.empty? %>
-    <div class="separation-horizontal pt-4 d-none" style="border-top-color: rgb(221, 221, 221)">
-      <h4><strong>Description:</strong></h4>
-      <p><%= @grapevine.description %></p>
-    </div>
-    <% else %>
-      <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
-      <h4><strong>Description:</strong></h4>
-      <p><%= @grapevine.description %></p>
-    </div>
-    <% end %>
+  <div class="p-3 text-center">
+    <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn-bordeaux" %>
+  </div>
   </div>
 
-<div class="p-3 text-center">
-  <%= link_to "Je loue cette vigne ! ", new_grapevine_booking_path(@grapevine.id), class: "btn-bordeaux" %>
-</div>
-</div>
-
-
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-marker-value="<%= @marker.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">``
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-marker-value="<%= @marker.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
