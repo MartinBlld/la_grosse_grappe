@@ -22,9 +22,8 @@
 <ul>
   <% @bookings.each do |booking| %>
     <li>Parcelle louée : <%= booking.grapevine.name %></li>
-    <li>Quantité louée : <%= booking.parcel_quantity %></li>
-    <li>Début de location : <%= booking.starting_year %></li>
-    <li>Fin de location : <%= booking.ending_year %></li>
+    <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
+    <li>Durée de la location : <%= booking.years %> ans</li>
   <% end %>
 </ul>
 <% end %>

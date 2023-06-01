@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:parcel_quantity, :starting_year, :ending_year)
+    params.require(:booking).permit(:parcel_quantity, :years)
   end
 
   def grapevine
