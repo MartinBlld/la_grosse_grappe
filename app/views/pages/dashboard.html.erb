@@ -1,4 +1,4 @@
-<div>
+<div class="card-trip-infos">
   <div class="p-3">
     <h3>Mes vignes</h3>
 
@@ -26,10 +26,24 @@
       <ul>
         <% @bookings.each do |booking| %>
           <li>Parcelle louée : <%= booking.grapevine.name %></li>
-          <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
-          <li>Durée de la location : <%= booking.years %> ans</li>
+          <p>Quantité louée : <%= booking.parcel_quantity %> part(s) </p>
+          <p>Durée de la location : <%= booking.years %> ans</p>
         <% end %>
       </ul>
     <% end %>
+  </div>
+
+  <div class="p-3">
+    <h3>Mon profil</h3>
+
+    <ul>
+      <li>Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
+      <li>Email: <%= current_user.email %></li>
+      <li>Numéro de téléphone: <%= current_user.phone_number %></li>
+      <% if current_user.winemaker == true %>
+        <li>Winemaker <i class="fa-sharp fa-solid fa-wine-glass"></i></li>
+      <% end %>
+    </ul>
+    <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn-bordeaux" %>
   </div>
 </div>
