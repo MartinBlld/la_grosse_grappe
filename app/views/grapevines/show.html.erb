@@ -15,19 +15,20 @@
 
 
   <div>
-    <h5>C'est la vigne de <%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %> !</h5>
-    <p class=""><%= @grapevine.parcel_stock %> hectares</p>
+    <h5>C'est la parcelle de <%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %> !</h5>
+    <p class=""><%= @grapevine.parcel_stock %> parcelle(s) disponible(s)</p>
+    <p><%= @grapevine.short_description %></p>
   </div>
 
   <div class="separation-horizontal pt-4" style="border-top-color: rgb(221, 221, 221)">
-    <p>Cépage: <%= @grapevine.grape_variety %></p>
+    <p>Cépage de la vigne : <%= @grapevine.grape_variety %></p>
+    <p>Couleur du vin :  <%= @grapevine.color %></p>
     <p><%= "Biologique" if @grapevine.organic %></p>
-    <p>Couleur de vin: <%= @grapevine.color %></p>
+    <p>Prix / parcelle : <%= @grapevine.parcel_price %> €</p>
+    <p>Description : <%= @grapevine.description %></p>
   </div>
-  <div>
-  <h3>Description:</h3>
-  <p><%= @grapevine.description %></p>
-  </div>
+
+
 </div>
 
 
