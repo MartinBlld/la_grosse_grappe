@@ -27,7 +27,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto ">
-            <li class="nav-item centered-element ">
+            <li class="nav-item centered-element">
               <%= link_to "Faire parrainer ma vigne", new_grapevine_path, class: "btn-bordeaux" %>
             </li>
             <% if user_signed_in? %>
@@ -40,13 +40,13 @@
                 <%= image_tag "borat-mankini-fines.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
+                  <%= link_to "Mon Dashboard", dashboard_path, class: "dropdown-item" %>
 
                   <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>
             <% else %>
-               <li class="nav-item">
+               <li class="nav-item centered-element">
                 <%= link_to "Se connecter", new_user_session_path, class: "nav-link btn-navy" %>
               </li>
             <% end %>
