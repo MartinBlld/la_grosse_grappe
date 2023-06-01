@@ -7,7 +7,7 @@
         <%= f.input :years, collection: (1..@grapevine.rental_period), label: "Nombre d'année maximum pendant laquelle une parcelle est louée"  %>
         </div>
         <div data-target="price-count" data-action="change->price-count#updatePriceCounter">
-        <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer" %>
+        <%= f.input :parcel_quantity, collection: 1..@grapevine.parcel_stock , prompt: "Combien de part souhaitez vous louer ?" %>
         </div>
         <%= f.submit "Submit review", class: "btn btn-primary" %>
         <% end %>

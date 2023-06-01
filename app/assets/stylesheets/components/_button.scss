@@ -1,0 +1,39 @@
+.btn-bordeaux {
+  background-color: #B3005E;
+  border-color: #B3005E;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+  margin: 2px;
+  font-family: $body-font;
+
+  &:hover {
+    background-color: #E90064;
+    border-color: #E90064;
+    color: white;
+  }
+}
+a {
+  color: inherit; // Ajoutez cette ligne pour hériter de la couleur du parent
+  text-decoration: none; // Pour supprimer le soulignement du lien
+}
+
+.btn-navy {
+  background-color: #060047;
+  border-color: #060047;
+  border-radius: 10px;
+  color: white;
+
+  &:hover {
+    background-color: #19376D;
+    border-color: #19376D;
+    color: white;
+  }
+}
+
+// $bordeaux: #B3005E;
+// $navy: #060047;
+// $fushia: #E90064;
+// $pink: #FF5F9E;
+// $grey: #73777B;

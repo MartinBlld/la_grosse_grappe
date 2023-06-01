@@ -34,13 +34,13 @@
                 <%= image_tag "borat-mankini-fines", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
-                  <%= link_to "Another action", "#", class: "dropdown-item" %>
-                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                  <%= link_to "Autre", "#", class: "dropdown-item" %>
+                  <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>
             <% else %>
                <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Se connecter", new_user_session_path, class: "nav-link btn-navy" %>
               </li>
             <% end %>
           </ul>
