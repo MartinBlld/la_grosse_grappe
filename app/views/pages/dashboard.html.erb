@@ -1,74 +1,78 @@
-<div class="card-trip-position-start-top">
-  <div class="p-3">
-    <h3>Mes vignes</h3>
-      <% if @grapevines.empty? %>
-        <p> Vous n'avez pas encore créé de vigne. </p>
-        <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-bordeaux" %>
-      <% else %>
-        <% @grapevines.each do |grapevine| %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= asset_path('photo-banner-home.jpg')%>);">
+  <div class="card-trip-position-start-top">
+    <div class="p-3 ">
+      <h3 class="white-text">Mes vignes</h3>
+      <div class="mb-3">
+        <% if @grapevines.empty? %>
+          <p> Vous n'avez pas encore créé de vigne. </p>
+          <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-bordeaux" %>
+        <% else %>
+          <% @grapevines.each do |grapevine| %>
 
-            <div class="card p-1 m-2 card-style white-text-hoover">
+              <div class="card p-1 m-2 card-style white-text-hoover">
 
-          <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %> <%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash" style="color: #525252;"></i>
-            <% end %></li>
-              <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
-            </div>
-        <% end %>
-          <%= link_to "Créer une parcelle de vigne", new_grapevine_path, class: "btn-bordeaux" %>
+            <li><%= link_to grapevine.name, grapevine_path(grapevine)%>,<%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-solid fa-trash" style="color: #525252;"></i>
+              <% end %></li>
+                <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
+              </div>
+          <% end %>
+          <% end %>
+          </div>
+            <%= link_to "Créer une vigne", new_grapevine_path, class: "btn-bordeaux" %>
+      </div>
+
+    <div class="p-3">
+      <h3 class="white-text">Les réservations sur mes vignes</h3>
+              <% @grapevines.each do |grapevine| %>
+                    <% grapevine.bookings.each do |booking| %>
+                  <%= link_to grapevine_path(grapevine) do%>
+                      <div class="card p-1 m-2 card-style white-text-hoover">
+                        <ul>
+                          <li>Parcelle louée : <%= booking.grapevine.name %></li>
+                          <li>Quantité louée : <%= booking.parcel_quantity %> part(s)</li>
+                          <li>Durée de la location : <%= booking.years %> ans</li>
+                          <li>Nom du locataire: <%= booking.user.first_name  %> <%= booking.user.last_name  %> </li>
+                          <li>Prix : <%= booking.total_price %>€</li>
+                      </ul>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+    </div>
+      <div class="p-3">
+      <h3 class="white-text">Mes réservations</h3>
+        <% if @bookings.empty? %>
+          <p> Vous n'avez pas encore créé de réservation. </p>
+        <% else %>
+          <ul>
+            <% @bookings.each do |booking| %>
+              <div class="card card-style white-text-hoover">
+                <ul>
+                  <li>Parcelle louée : <%= booking.grapevine.name %></li>
+                  <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
+                  <li>Durée de la location : <%= booking.years %> ans</li>
+                  <li>Prix : <%= booking.total_price %>€</li>
+                </ul>
+              </div>
+            <% end %>
         <% end %>
     </div>
 
-  <div class="p-3">
-    <h3>Les réservations sur mes vignes</h3>
-            <% @grapevines.each do |grapevine| %>
-                  <% grapevine.bookings.each do |booking| %>
-                <%= link_to grapevine_path(grapevine) do%>
-                    <div class="card p-1 m-2 card-style white-text-hoover">
-                      <ul>
-                        <li>Parcelle louée : <%= booking.grapevine.name %></li>
-                        <li>Quantité louée : <%= booking.parcel_quantity %> part(s)</li>
-                        <li>Durée de la location : <%= booking.years %> ans</li>
-                        <li>Nom du locataire: <%= booking.user.first_name  %> <%= booking.user.last_name  %> </li>
-                        <li>Prix : <%= booking.total_price %>€</li>
-                    </ul>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
-  </div>
+
     <div class="p-3">
-     <h3>Mes réservations</h3>
-      <% if @bookings.empty? %>
-        <p> Vous n'avez pas encore créé de réservation. </p>
-      <% else %>
-        <ul>
-          <% @bookings.each do |booking| %>
-            <div class="card card-style white-text-hoover">
-              <ul>
-                <li>Parcelle louée : <%= booking.grapevine.name %></li>
-                <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
-                <li>Durée de la location : <%= booking.years %> ans</li>
-                <li>Prix : <%= booking.total_price %>€</li>
-              </ul>
-            </div>
-          <% end %>
-      <% end %>
-  </div>
-
-
-  <div class="p-3">
-    <h3>Mon profil</h3>
- <div class="card card-style white-text-hoover ">
-    <ul>
-      <li>Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
-      <li>Email: <%= current_user.email %></li>
-      <li>Numéro de téléphone: <%= current_user.phone_number %></li>
-      <% if current_user.winemaker == true %>
-        <li>Winemaker <i class="fa-sharp fa-solid fa-wine-glass"></i></li>
-      <% end %>
-    </ul>
-    <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn-bordeaux" %>
-  </div>
+      <h3 class="white-text">Mon profil</h3>
+  <div class="card card-style white-text-hoover mb-3 ">
+      <ul>
+        <li>Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
+        <li>Email: <%= current_user.email %></li>
+        <li>Numéro de téléphone: <%= current_user.phone_number %></li>
+        <% if current_user.winemaker == true %>
+          <li>Winemaker <i class="fa-sharp fa-solid fa-wine-glass"></i></li>
+        <% end %>
+      </ul>
+    </div>
+      <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn-bordeaux " %>
+    </div>
   </div>
 </div>
