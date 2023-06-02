@@ -1,3 +1,12 @@
+.white-text-hoover {
+  color: white;
+
+  &:hover {
+    color: #E90064;
+  }
+}
+
 .white-text {
   color: white;
+
 }

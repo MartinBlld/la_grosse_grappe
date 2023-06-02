@@ -1,29 +1,50 @@
-<div class="p-3">
-<h1 class="mt-2">Bienvenue dans la création de votre parcelle !</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= asset_path('photo-banner-home.jpg')%>);">
+  <div class="p-3">
+    <h1 class="mt-2">Bienvenue dans la création de votre parcelle !</h1>
+<br>
+    <%= simple_form_for @grapevine do |f| %>
+      <%= f.input :name,
+                  label: "Nom de votre parcelle :",
+                  label_html: { class: "white-text" }%>
+      <%= f.input :grape_variety, label: "Cépage de votre vigne :",
+                  label_html: { class: "white-text" }%>
+      <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"],
+                  label: "Couleur de votre vin",
+                  label_html: { class: "white-text" } %>
+      <%= f.input :organic,
+                  label: "Biologique ?",
+                  label_html: { class: "white-text" }%>
+      <%= f.input :address,
+                  label: "Adresse de la parcelle :",
+                  label_html: { class: "white-text" },
+                  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
+                  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+      <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
+                    "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"],
+                  label: "Région",
+                  label_html: { class: "white-text" } %>
+      <%= f.input :parcel_price,
+                  label: "Prix / parcelle",
+                  label_html: { class: "white-text" }%>
+      <%= f.input :parcel_stock,
+                  label: "Nombre de parcelle que vous souhaitez mettre à la location.",
+                  label_html: { class: "white-text" }%>
+      <%= f.input :rental_period, collection: (1..10),
+                  label: "Nombre d'année maximum pendant laquelle votre parcelle sera louée",
+                  label_html: { class: "white-text" } %>
+      <%= f.input :description,
+                  label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc.",
+                  label_html: { class: "white-text" } %>
+      <%= f.input :short_description,
+                  label: "Légende qui sera assignée à votre parcelle. (150 caractères max)",
+                  label_html: { class: "white-text" }%>
+      <%= f.input :photo, as: :file %>
 
-<%= simple_form_for @grapevine do |f| %>
+      <%= f.button :submit, "Créer ma vigne", class: "btn-bordeaux"%>
+    <% end %>
 
-  <%= f.input :name, label: "Nom de la parcelle :" %>
-  <%= f.input :grape_variety, label: "Cépage de la vigne :" %>
-  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"], label: "Couleur" %>
-  <%= f.input :organic, label: "Biologique ?"%>
-  <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-  %>
-  <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
-  "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
-  <%= f.input :parcel_price , label: "Prix / parcelle"%>
-  <%= f.input :parcel_stock, label: "Nombre de parcelle louée"%>
-  <%= f.input :rental_period, collection: (1..10), label: "Nombre d'année maximum pendant laquelle une parcelle est louée" %>
-  <%= f.input :description, label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc." %>
-  <%= f.input :short_description , label: "Légende qui sera assignée à votre parcelle. (150 caractères max)"%>
-  <%= f.input :photo, as: :file %>
-
-  <%= f.button :submit, "Créer ma vigne", class: "btn btn-primary"%>
-<% end %>
-
-<div class="mt-3">
-<%= link_to "< Revenir sur mon profil", user_session_path%>
-</div>
+    <div class="mt-3">
+      <%= link_to "< Revenir sur mon profil", user_session_path, class: "white-text-hoover" %>
+    </div>
+  </div>
 </div>
