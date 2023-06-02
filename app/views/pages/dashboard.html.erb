@@ -7,7 +7,7 @@
       <% else %>
         <% @grapevines.each do |grapevine| %>
 
-            <div class="card p-1 m-2">
+            <div class="card p-1 m-2 card-style white-text-hoover">
 
           <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %> <%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-trash" style="color: #525252;"></i>
@@ -24,7 +24,7 @@
             <% @grapevines.each do |grapevine| %>
                   <% grapevine.bookings.each do |booking| %>
                 <%= link_to grapevine_path(grapevine) do%>
-                    <div class="card p-1 m-2">
+                    <div class="card p-1 m-2 card-style white-text-hoover">
                       <ul>
                         <li>Parcelle louée : <%= booking.grapevine.name %></li>
                         <li>Quantité louée : <%= booking.parcel_quantity %> part(s)</li>
@@ -44,7 +44,7 @@
       <% else %>
         <ul>
           <% @bookings.each do |booking| %>
-            <div class="card">
+            <div class="card card-style white-text-hoover">
               <ul>
                 <li>Parcelle louée : <%= booking.grapevine.name %></li>
                 <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
@@ -59,7 +59,7 @@
 
   <div class="p-3">
     <h3>Mon profil</h3>
- <div class="card">
+ <div class="card card-style white-text-hoover ">
     <ul>
       <li>Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
       <li>Email: <%= current_user.email %></li>
