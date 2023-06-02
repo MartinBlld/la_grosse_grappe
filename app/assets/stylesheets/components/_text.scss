@@ -17,3 +17,11 @@
     color: #E90064;
   }
 }
+
+.white-text-hoover-white {
+  color: rgb(255, 255, 255);
+
+  &:hover {
+    color: #ffffff;
+  }
+}

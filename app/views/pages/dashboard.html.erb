@@ -9,15 +9,18 @@
         <% else %>
           <% @grapevines.each do |grapevine| %>
 
-              <div class="card p-1 m-2 card-style white-text-hoover">
+              <div class="card p-1 m-2 card-style">
 
-            <li><%= link_to grapevine.name, grapevine_path(grapevine)%>,<%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                <i class="fa-solid fa-trash" style="color: #525252;"></i>
-              <% end %></li>
-                <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
+                <li><%= link_to grapevine.name, grapevine_path(grapevine), class: "white-text-hoover-white"%></li>
+                    <p><%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                         <i class="fa-solid fa-trash" style="color: rgba(147, 147, 147);"></i>
+                       <% end %>
+                       <%= link_to edit_grapevine_path(grapevine), class: "white-text-hoover" do%>
+                         <i class="fa-solid fa-pen-to-square" style="color: rgba(147, 147, 147);"></i>
+                       <% end %></p>
               </div>
           <% end %>
-          <% end %>
+        <% end %>
           </div>
             <%= link_to "Créer une vigne", new_grapevine_path, class: "btn-bordeaux" %>
       </div>
