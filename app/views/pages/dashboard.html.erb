@@ -8,8 +8,10 @@
     <% else %>
       <ul>
         <% @grapevines.each do |grapevine| %>
-          <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
-            <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
+          <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %> <%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash" style="color: #525252;"></i>
+            <% end %></li>
+          <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
         <% end %>
       </ul>
 
