@@ -9,38 +9,45 @@
       <%= f.input :grape_variety, label: "Cépage de votre vigne :",
                   label_html: { class: "white-text" }%>
       <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"],
-                  label: "Couleur de votre vin",
+                  label: "Couleur de votre vin :",
                   label_html: { class: "white-text" } %>
       <%= f.input :organic,
                   label: "Biologique ?",
                   label_html: { class: "white-text" }%>
+
       <%= f.input :address,
                   label: "Adresse de la parcelle :",
                   label_html: { class: "white-text" },
-                  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
-                  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+                  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none", id:"test" },
+                  wrapper_html: {data: {controller: "address-autocomplete",
+                  # input_html: { class: "white-text" },
+                  address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+
+
       <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
                     "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"],
-                  label: "Région",
+                  label: "Région :",
                   label_html: { class: "white-text" } %>
       <%= f.input :parcel_price,
-                  label: "Prix / parcelle",
+                  label: "Prix / parcelle :",
                   label_html: { class: "white-text" }%>
       <%= f.input :parcel_stock,
-                  label: "Nombre de parcelle que vous souhaitez mettre à la location.",
+                  label: "Nombre de parcelle que vous souhaitez mettre à la location :",
                   label_html: { class: "white-text" }%>
       <%= f.input :rental_period, collection: (1..10),
-                  label: "Nombre d'année maximum pendant laquelle votre parcelle sera louée",
+                  label: "Nombre d'année maximum pendant laquelle votre parcelle sera louée :",
                   label_html: { class: "white-text" } %>
       <%= f.input :description,
                   label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc.",
                   label_html: { class: "white-text" } %>
       <%= f.input :short_description,
-                  label: "Légende qui sera assignée à votre parcelle. (150 caractères max)",
+                  label: "Légende qui sera assignée à votre parcelle (150 caractères max) :",
                   label_html: { class: "white-text" }%>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photo,
+                  label_html: { class: "white-text" },
+                  as: :file %>
 
-      <%= f.button :submit, "Créer ma vigne", class: "btn-bordeaux"%>
+      <%= f.button :submit, "Créer ma vigne :", class: "btn-bordeaux"%>
     <% end %>
 
     <div class="mt-3">
