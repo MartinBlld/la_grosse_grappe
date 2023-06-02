@@ -1,41 +1,61 @@
-<div class="card-trip-infos">
+<div class="card-trip-position-start-top">
   <div class="p-3">
     <h3>Mes vignes</h3>
-
-    <% if @grapevines.empty? %>
-      <p> Vous n'avez pas encore créé de vigne. </p>
-      <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-bordeaux" %>
-    <% else %>
-      <ul>
+      <% if @grapevines.empty? %>
+        <p> Vous n'avez pas encore créé de vigne. </p>
+        <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-bordeaux" %>
+      <% else %>
         <% @grapevines.each do |grapevine| %>
-          <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
-            <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
+            <div class="card p-1 m-2">
+              <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+              <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
+            </div>
         <% end %>
-      </ul>
-
-      <%= link_to "Créer ma parcelle de vigne", new_grapevine_path, class: "btn-bordeaux" %>
-    <% end %>
-  </div>
+          <%= link_to "Créer une parcelle de vigne", new_grapevine_path, class: "btn-bordeaux" %>
+        <% end %>
+    </div>
 
   <div class="p-3">
-    <h3>Mes réservations</h3>
-
-    <% if @bookings.empty? %>
-      <p> Vous n'avez pas encore créé de réservation. </p>
-    <% else %>
-      <ul>
-        <% @bookings.each do |booking| %>
-          <li>Parcelle louée : <%= booking.grapevine.name %></li>
-          <p>Quantité louée : <%= booking.parcel_quantity %> part(s) </p>
-          <p>Durée de la location : <%= booking.years %> ans</p>
-        <% end %>
-      </ul>
-    <% end %>
+    <h3>Les réservations sur mes vignes</h3>
+            <% @grapevines.each do |grapevine| %>
+                  <% grapevine.bookings.each do |booking| %>
+                <%= link_to grapevine_path(grapevine) do%>
+                    <div class="card p-1 m-2">
+                      <ul>
+                        <li>Parcelle louée : <%= booking.grapevine.name %></li>
+                        <li>Quantité louée : <%= booking.parcel_quantity %> part(s)</li>
+                        <li>Durée de la location : <%= booking.years %> ans</li>
+                        <li>Nom du locataire: <%= booking.user.first_name  %> <%= booking.user.last_name  %> </li>
+                        <li>Prix : <%= booking.total_price %>€</li>
+                    </ul>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
   </div>
+    <div class="p-3">
+     <h3>Mes réservations</h3>
+      <% if @bookings.empty? %>
+        <p> Vous n'avez pas encore créé de réservation. </p>
+      <% else %>
+        <ul>
+          <% @bookings.each do |booking| %>
+            <div class="card">
+              <ul>
+                <li>Parcelle louée : <%= booking.grapevine.name %></li>
+                <li>Quantité louée : <%= booking.parcel_quantity %> part(s) </li>
+                <li>Durée de la location : <%= booking.years %> ans</li>
+                <li>Prix : <%= booking.total_price %>€</li>
+              </ul>
+            </div>
+          <% end %>
+      <% end %>
+  </div>
+
 
   <div class="p-3">
     <h3>Mon profil</h3>
-
+ <div class="card">
     <ul>
       <li>Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
       <li>Email: <%= current_user.email %></li>
@@ -45,5 +65,6 @@
       <% end %>
     </ul>
     <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn-bordeaux" %>
+  </div>
   </div>
 </div>
