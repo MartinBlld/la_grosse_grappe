@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.grapevine = @grapevine
+    @booking.total_price = @grapevine.parcel_price * @booking.parcel_quantity * @booking.years
     @booking.status = "Merci pour votre geste !"
     @booking.save
     if @booking.save!
