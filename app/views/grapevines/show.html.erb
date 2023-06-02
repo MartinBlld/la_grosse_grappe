@@ -7,22 +7,19 @@
       <p id=""><strong><u><%= @grapevine.area %></u></strong></p>
     </div>
 
-
-
-
       <div class="card-trip-show">
         <div class="d-flex mx-auto">
           <% if  @grapevine.photo %>
               <%= image_tag @grapevine.photo, class: "vine-img me-3 w-75" %>
             <% else %>
-              <%= image_tag "default-image-grappe", class: "vine-img me-3 w-75" %>
+              <%= image_tag "default-image-grappe.jpg", class: "vine-img me-3 w-75" %>
             <% end %>
       <div style="width: 50%;"
         data-controller="map"
         data-map-marker-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">``
       </div>
-</div>
+     </div>
 
         <div class="card-trip-infos-show">
           <div class="d-flex align-items-center gap-3">

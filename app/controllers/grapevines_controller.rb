@@ -18,8 +18,8 @@ class GrapevinesController < ApplicationController
     @grapevine.user = current_user
   if @grapevine.photo.blank?
     # Définir la photo par défaut
-    default_photo_path = Rails.root.join('app', 'assets', 'images', 'default-image-grappe.jpeg')
-    @grapevine.photo.attach(io: File.open(default_photo_path), filename: 'default-image-grappe.jpeg', content_type: 'image/jpg')
+    default_photo_path = Rails.root.join('app', 'assets', 'images', 'default-image-grappe.jpg')
+    @grapevine.photo.attach(io: File.open(default_photo_path), filename: 'default-image-grappe.jpg', content_type: 'image/jpg')
   end
 
      @grapevine.save
@@ -39,8 +39,8 @@ class GrapevinesController < ApplicationController
     @grapevine = Grapevine.find(params[:id])
     if @grapevine.photo.blank?
       # Définir la photo par défaut
-      default_photo_path = Rails.root.join('app', 'assets', 'images', 'default-image-grappe.jpeg')
-      @grapevine.photo.attach(io: File.open(default_photo_path), filename: 'default-image-grappe.jpeg', content_type: 'image/jpg')
+      default_photo_path = Rails.root.join('app', 'assets', 'images', 'default-image-grappe.jpg')
+      @grapevine.photo.attach(io: File.open(default_photo_path), filename: 'default-image-grappe.jpg', content_type: 'image/jpg')
     end
       @grapevine.update(params_grapevine)
       redirect_to grapevine_path(@grapevine)
