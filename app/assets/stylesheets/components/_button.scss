@@ -1,3 +1,11 @@
+.button-retour {
+  color: #B3005E;
+
+  &:hover {
+    color: #E90064;
+  }
+}
+
 .btn-bordeaux {
   background-color: #B3005E;
   border-color: #B3005E;
@@ -14,7 +22,6 @@
     color: white;
   }
 }
-
 
 
 a {

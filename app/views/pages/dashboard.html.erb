@@ -6,8 +6,12 @@
         <%= link_to "Créer ma vigne", new_grapevine_path, class: "btn btn-bordeaux" %>
       <% else %>
         <% @grapevines.each do |grapevine| %>
+
             <div class="card p-1 m-2">
-              <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %></li>
+
+          <li><%= link_to grapevine.name, grapevine_path(grapevine)%>, <%= grapevine.area %> <%= link_to grapevine_path(grapevine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash" style="color: #525252;"></i>
+            <% end %></li>
               <%= link_to "Modifier ma vigne", edit_grapevine_path(grapevine)%>
             </div>
         <% end %>

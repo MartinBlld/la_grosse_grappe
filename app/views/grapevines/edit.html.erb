@@ -1,19 +1,44 @@
-<h1>Vous apportez des modifications à votre parcelle <%= @grapevine.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= asset_path('photo-banner-home.jpg')%>);">
+  <div class="p-3">
+    <h1 class="mt-2">Vous apportez des modifications à votre parcelle <%= @grapevine.name %></h1>
+    <br>
+      <%= simple_form_for(@grapevine) do |f| %>
+        <%= f.input :name,
+                    label: "Nom de la parcelle :",
+                    label_html: { class: "white-text" } %>
+        <%= f.input :grape_variety,
+                    label: "Cépage de la vigne :",
+                    label_html: { class: "white-text" } %>
+        <%= f.input :color,
+                    collection: ["Rouge", "Blanc", "Rosé", "Gris"],
+                    label: "Couleur :",
+                    label_html: { class: "white-text" } %>
+        <%= f.input :organic,
+                    label_html: { class: "white-text" },
+                    label: "Biologique ?"%>
+        <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
+                      "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"],
+                    label: "Région",
+                    label_html: { class: "white-text" } %>
+        <%= f.input :parcel_price,
+                    label_html: { class: "white-text" },
+                    label: "Prix / parcelle :"%>
+        <%= f.input :parcel_stock,
+                    label_html: { class: "white-text" },
+                    label: "Nombre de parcelle louée :"%>
+        <%= f.input :description,
+                    label_html: { class: "white-text" },
+                    label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc." %>
+        <%= f.input :short_description,
+                     label_html: { class: "white-text" },
+                    label: "Légende qui sera assignée à votre parcelle. (150 caractères max)"%>
+        <%= f.input :photo,
+                    label_html: { class: "white-text" },
+                    as: :file %>
+        <%= f.button :submit, "Modifier ma vigne :", class: "btn-bordeaux"%>
+      <% end %>
 
-<%= simple_form_for(@grapevine) do |f| %>
-  <%= f.input :name, label: "Nom de la parcelle :" %>
-  <%= f.input :grape_variety, label: "Cépage de la vigne :" %>
-  <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"], label: "Couleur" %>
-  <%= f.input :organic, label: "Biologique ?"%>
-  <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
-  "Sud Est", "Sud-Ouest", "Vallée de la Loire", "Vallée du Rhône"], label: "Région" %>
-  <%= f.input :parcel_price , label: "Prix / parcelle :"%>
-  <%= f.input :parcel_stock, label: "Nombre de parcelle louée :"%>
-  <%= f.input :description, label: "Décrivez votre vignoble : rendement par parcelle, spécificité du vin que vous produisez, votre histoire, etc." %>
-  <%= f.input :short_description, label: "Légende qui sera assignée à votre parcelle. (150 caractères max)"%>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
 
-
-<%= link_to "Retour sur mon profil", user_session_path%>
+      <%= link_to "< Retour sur mon profil", user_session_path, class: "white-text-hoover"%>
+  </div>
+</div>

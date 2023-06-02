@@ -1,35 +1,36 @@
 <div class="container">
 
-<p class="p-3"><%= link_to "<Retour", grapevines_path, class: "button-retour" %></p>
+<p class="p-3"><%= link_to "< Retour", grapevines_path, class: "button-retour" %></p>
   <div class="m-3">
     <div>
       <h3><strong><%= @grapevine.name %></strong></h3>
       <p id=""><strong><u><%= @grapevine.area %></u></strong></p>
     </div>
 
-
-
-
       <div class="card-trip-show">
         <div class="d-flex mx-auto">
           <% if  @grapevine.photo %>
               <%= image_tag @grapevine.photo, class: "vine-img me-3 w-75" %>
             <% else %>
-              <%= image_tag "default-image-grappe", class: "vine-img me-3 w-75" %>
+              <%= image_tag "default-image-grappe.jpg", class: "vine-img me-3 w-75" %>
             <% end %>
       <div style="width: 50%;"
         data-controller="map"
         data-map-marker-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">``
       </div>
-</div>
+     </div>
 
         <div class="card-trip-infos-show">
           <div class="d-flex align-items-center gap-3">
-            <div class="">
-              <%= image_tag "borat-mankini-fines.jpg", class: "avatar", id: "photo-profil", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div>
+              <% if @grapevine.user.photo.present? %>
+                <%= image_tag @grapevine.user.photo, class: "avatar", id: "photo-profil", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "default-image-grappe.jpg", class: "avatar", id: "photo-profil", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
             </div>
-            <div class="">
+            <div>
               <h5>C'est la vigne de <strong><%= @grapevine.user.first_name %> <%= @grapevine.user.last_name %></strong> !</h5>
             </div>
           </div>
