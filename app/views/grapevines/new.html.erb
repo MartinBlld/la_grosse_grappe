@@ -1,14 +1,14 @@
 <div class="p-3">
 <h1 class="mt-2">Bienvenue dans la création de votre parcelle !</h1>
 
-<%= simple_form_for(@grapevine) do |f| %>
+<%= simple_form_for @grapevine do |f| %>
 
   <%= f.input :name, label: "Nom de la parcelle :" %>
   <%= f.input :grape_variety, label: "Cépage de la vigne :" %>
   <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé", "Gris"], label: "Couleur" %>
   <%= f.input :organic, label: "Biologique ?"%>
   <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, },
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
   %>
   <%= f.input :area, collection: ["Alsace/Moselle", "Beaujolais", "Bordeaux", "Bourgogne", "Champagne", "Corse", "IGP Calvados", "Jura/ Savoie", "Languedoc Roussillon",
